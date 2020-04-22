@@ -1,7 +1,6 @@
 package com.manoelcampos.exportador;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.function.Function;
 
 /**
  * Exporta dados de uma lista de {@link Produto} para Markdown (arquivos md).
@@ -40,11 +39,16 @@ class ExportadorListaProdutoMarkdown extends AbstractExportadorListaProduto {
 
     @Override
     public String fecharLinhaTitulos() {
-        List<String> valores = new ArrayList<>();
-        for (int i = 0; i < TITULOS_COLUNAS.size(); i++) {
-            valores.add("-----");
+        StringBuilder builder = new StringBuilder();
+        for (Coluna coluna : getColunas()) {
+            builder.append(coluna.abrir()+"-----");
         }
-        return gerarColunasLinha(valores);
+        return builder.toString();
+    }
+
+    @Override
+    public Coluna newColuna(Function<Produto, Object> obtemValorColuna, String titulo) {
+        return new ColunaMarkdown(obtemValorColuna, titulo);
     }
 
 

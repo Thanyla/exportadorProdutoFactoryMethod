@@ -26,18 +26,16 @@ public abstract class AbstractExportadorListaProduto implements ExportadorListaP
 
     @Override
     public void addCOluna(Coluna coluna) {
-        colunas.add(coluna);
+        getColunas().add(coluna);
     }
- 
-    
-    
+  
 
     @Override
     public final String exportar(List<Produto> listaProdutos) {
         final StringBuilder sb = new StringBuilder();
         sb.append(abrirTabela());
 
-        for (Coluna coluna : colunas) {
+        for (Coluna coluna : getColunas()) {
             sb.append(coluna.exportarCabecalho());
         }
         
@@ -74,11 +72,18 @@ public abstract class AbstractExportadorListaProduto implements ExportadorListaP
         StringBuilder sb = new StringBuilder();
         sb.append(abrirLinha());
         
-        for (Coluna coluna : colunas) {
+        for (Coluna coluna : getColunas()) {
             sb.append(coluna.exportarDados(produto));
         }
         sb.append(fecharLinha());
         sb.append("\n");
         return sb.toString();
+    }
+
+    /**
+     * @return the colunas
+     */
+    protected List<Coluna> getColunas() {
+        return colunas;
     }
 }

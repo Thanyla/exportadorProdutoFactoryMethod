@@ -38,7 +38,7 @@ public abstract class AbstractExportadorListaProduto implements ExportadorListaP
         for (Coluna coluna : getColunas()) {
             sb.append(coluna.exportarCabecalho());
         }
-        
+        sb.append("\n");
         sb.append(fecharLinhaTitulos());
         gerarLinhasProdutos(sb, listaProdutos);
 

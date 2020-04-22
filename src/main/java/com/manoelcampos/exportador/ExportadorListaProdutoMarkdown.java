@@ -43,6 +43,7 @@ class ExportadorListaProdutoMarkdown extends AbstractExportadorListaProduto {
         for (Coluna coluna : getColunas()) {
             builder.append(coluna.abrir()+"-----");
         }
+        builder.append("\n");
         return builder.toString();
     }
 

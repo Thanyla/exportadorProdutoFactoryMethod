@@ -32,7 +32,7 @@ public abstract class AbstractColuna implements Coluna {
     @Override
     public String exportarDados(Produto produto) {
        Object retorno = obtemValorColuna.apply(produto);
-        return retorno.toString();
+        return abrir()+ retorno.toString() + fechar();
     }
     
 }

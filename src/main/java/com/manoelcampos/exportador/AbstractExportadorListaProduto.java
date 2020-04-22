@@ -35,9 +35,11 @@ public abstract class AbstractExportadorListaProduto implements ExportadorListaP
         final StringBuilder sb = new StringBuilder();
         sb.append(abrirTabela());
 
+        sb.append(abrirLinha());
         for (Coluna coluna : getColunas()) {
             sb.append(coluna.exportarCabecalho());
         }
+        sb.append(fecharLinha());
         sb.append("\n");
         sb.append(fecharLinhaTitulos());
         gerarLinhasProdutos(sb, listaProdutos);

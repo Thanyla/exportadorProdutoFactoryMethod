@@ -1,5 +1,7 @@
 package com.manoelcampos.exportador;
 
+import java.util.function.Function;
+
 /**
  * Exporta dados de uma lista de {@link Produto} para HTML.
  *
@@ -38,12 +40,9 @@ class ExportadorListaProdutoHtml extends AbstractExportadorListaProduto {
     }
 
     @Override
-    public String abrirColuna(String valor) {
-        return "<td>" + valor;
+    public Coluna newColuna(Function<Produto, Object> obtemValorColuna, String titulo) {
+        return new ColunaHtml(obtemValorColuna, titulo);
     }
 
-    @Override
-    public String fecharColuna() {
-        return "</td>";
-    }
+
 }

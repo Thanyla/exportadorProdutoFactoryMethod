@@ -47,13 +47,5 @@ class ExportadorListaProdutoMarkdown extends AbstractExportadorListaProduto {
         return gerarColunasLinha(valores);
     }
 
-    @Override
-    public String abrirColuna(String valor) {
-        return valor;
-    }
 
-    @Override
-    public String fecharColuna() {
-        return " " + SEPARADOR_COL;
-    }
 }

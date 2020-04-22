@@ -40,8 +40,8 @@ class ExportadorListaProdutoHtml extends AbstractExportadorListaProduto {
     }
 
     @Override
-    public Coluna newColuna(Function<Produto, Object> obtemValorColuna, String titulo) {
-        return new ColunaHtml(obtemValorColuna, titulo);
+    public void addNewColuna(Function<Produto, Object> obtemValorColuna, String titulo) {
+         addCOluna(new ColunaHtml(obtemValorColuna, titulo));
     }
 
 

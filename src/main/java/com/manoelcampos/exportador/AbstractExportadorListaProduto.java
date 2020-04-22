@@ -17,15 +17,15 @@ public abstract class AbstractExportadorListaProduto implements ExportadorListaP
      */
     protected static final List<String> TITULOS_COLUNAS = Arrays.asList("ID", "Descrição", "Marca", "Modelo", "Estoque");
     private List<Coluna> colunas;
-
+    
     public AbstractExportadorListaProduto() {
         colunas = new ArrayList<>();
-        colunas.add(newColuna(Produto::getId, "Código"));
-        colunas.add(newColuna(Produto::getDescricao, "Descrição"));
+        addNewColuna(Produto::getId, "Código");
+        addNewColuna(Produto::getDescricao, "Descrição");
     }
 
-    @Override
-    public void addCOluna(Coluna coluna) {
+    
+    protected void addCOluna(Coluna coluna) {
         getColunas().add(coluna);
     }
   

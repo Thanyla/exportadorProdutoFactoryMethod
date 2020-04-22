@@ -48,8 +48,8 @@ class ExportadorListaProdutoMarkdown extends AbstractExportadorListaProduto {
     }
 
     @Override
-    public Coluna newColuna(Function<Produto, Object> obtemValorColuna, String titulo) {
-        return new ColunaMarkdown(obtemValorColuna, titulo);
+    public void addNewColuna(Function<Produto, Object> obtemValorColuna, String titulo) {
+        addCOluna(new ColunaMarkdown(obtemValorColuna, titulo));
     }
 
 

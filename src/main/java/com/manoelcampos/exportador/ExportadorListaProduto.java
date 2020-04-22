@@ -12,8 +12,8 @@ import java.util.function.Function;
  */
 public interface ExportadorListaProduto {
 
-    Coluna newColuna(Function<Produto, Object> obtemValorColuna, String titulo);
-    void addCOluna(Coluna coluna);
+    void addNewColuna(Function<Produto, Object> obtemValorColuna, String titulo);
+    
     
     /**
      * Retorna o código HTML para abertura de uma tabela.
